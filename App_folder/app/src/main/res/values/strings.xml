@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Planetcafe_app</string>
+    <string name="app_name">Planet Cafe</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="home_page">Home Page</string>
+    <string name="quiz_page">Quiz Page</string>
+    <string name="about_page">About Page</string>
 </resources>
