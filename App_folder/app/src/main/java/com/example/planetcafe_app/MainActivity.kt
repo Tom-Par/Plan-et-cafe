@@ -46,7 +46,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.fragment_container, QuizFragment()).commit()
             R.id.nav_about -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, AboutFragment()).commit()
-            R.id.nav_profile -> Toast.makeText(this, "Profile!", Toast.LENGTH_SHORT).show()
+            R.id.nav_profile -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ProfileFragment()).commit()
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
