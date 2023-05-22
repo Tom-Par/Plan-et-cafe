@@ -6,7 +6,7 @@
     android:layout_height="176dp"
     android:gravity="bottom"
     android:padding="16dp"
-    android:background="@color/light_brown"
+    android:background="#683F06"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
@@ -14,12 +14,13 @@
         android:layout_height="wrap_content"
         android:text="Tomasz Paruzel"
         android:textColor="@color/pale"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="20sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="324010@uwr.edu.pl"
         android:textColor="@color/pale"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:layout_marginBottom="16dp"/>
 </LinearLayout>

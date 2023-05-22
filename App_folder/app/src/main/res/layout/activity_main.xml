@@ -40,6 +40,6 @@
         app:menu="@menu/nav_menu"
         android:background="@color/white"
         app:itemIconTint="@color/dark_brown"
-        app:itemTextColor="@color/pale"/>
+        app:itemTextColor="@color/dark_brown"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
