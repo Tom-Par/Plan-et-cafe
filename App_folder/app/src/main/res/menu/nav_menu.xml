@@ -10,23 +10,23 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/nav_home"
-            android:title="Home"/>
+            android:title="@string/home_menu"/>
 
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/nav_quiz"
-            android:title="Quiz"/>
+            android:title="@string/quiz_menu"/>
 
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/nav_about"
-            android:title="About Us"/>
+            android:title="@string/about_menu"/>
     </group>
 
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/nav_profile"
-        android:title="Profile"/>
+        android:title="@string/profile_menu"/>
 
 
 </menu>
