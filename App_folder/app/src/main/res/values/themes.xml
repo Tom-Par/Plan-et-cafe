@@ -28,5 +28,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="CoffeePostDetailText" parent="TextAppearance.AppCompat.Subhead"/>
+
+    <style name="CoffeeTitle" parent="TextAppearance.AppCompat.Headline"/>
+
+    <style name="CoffeePostDetailTitle" parent="TextAppearance.AppCompat.Headline"/>
+
 
 </resources>

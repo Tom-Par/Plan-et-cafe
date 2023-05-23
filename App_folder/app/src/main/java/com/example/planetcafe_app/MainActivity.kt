@@ -1,5 +1,6 @@
 package com.example.planetcafe_app
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.Window
@@ -13,6 +14,7 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
+    private val coffee_places: ArrayList<Coffee> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.fragment_container, HomeFragment()).commit()
             navigationView.setCheckedItem(R.id.nav_home)
         }
+    }
+
+    @SuppressLint("Recycle")
+    private fun InitializeData() {
+        val coffeePlaceList = resources.getStringArray(R.array.coffee_titles)
+        val coffeePlaceInfo = resources.getStringArray(R.array.coffee_info)
+        val coffeePlaceImageResources = resources.obtainTypedArray(R.array.coffee_images)
+
+        coffee_places.clear()
+
+        for (i in coffeePlaceList.indices) coffee_places.add (
+            Coffee(
+                coffeePlaceList[i],
+                coffeePlaceInfo[i],
+                coffeePlaceImageResources.getResourceId(i, 0)
+                )
+            )
+        coffeePlaceImageResources.recycle()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

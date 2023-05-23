@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".DetailActivity">
+
+        <ImageView
+            android:id="@+id/coffeePostImageDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cf_desc"/>
+
+        <TextView
+            android:id="@+id/titleDetail"
+            style="@style/CoffeePostDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/coffeePostImageDetail"
+            android:padding="16dp"
+            android:text="@string/title_placeholder"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+        <TextView
+            android:id="@+id/coffeeTitleDetail"
+            style="@style/CoffeePostDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coffeePostImageDetail"
+            android:padding="16dp"
+            android:text="@string/coffee_placeholder"
+            android:textColor="?android:textColorSecondary" />
+
+        <TextView
+            android:id="@+id/genericTextDetail"
+            style="@style/CoffeePostDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coffeeTitleDetail"
+            android:padding="16dp"
+            android:text="@string/subtitle_detail_text" />
+
+    </RelativeLayout>
+</ScrollView>
