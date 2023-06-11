@@ -1,44 +1,67 @@
 package com.example.planetcafe_app
 
-import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CoffeePlacesAdapter(
-    private val context: Context,
-    private val coffee_places: ArrayList<Coffee>) :
-    RecyclerView.Adapter<CoffeePlacesAdapter.InstituteViewHolder>() {
+class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
-    inner class InstituteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val titleTextView: TextView = itemView.findViewById(R.id.title)
-        private val infoTextView: TextView = itemView.findViewById(R.id.subTitle)
-        private val coffeeImage: ImageView = itemView.findViewById(R.id.coffeePostImageDetail)
+    private val kode = arrayOf("d116df5",
+        "36ffc75", "f5cfe78", "5b87628",
+        "db8d14e", "9913dc4", "e120f96",
+        "466251b")
 
-        fun bind(currentCoffee: Coffee) {
-            titleTextView.text = currentCoffee.title
-            infoTextView.text = currentCoffee.info
-            Glide.with(context).load(currentCoffee.imageResource)
-                .into(coffeeImage)
+    private val kategori = arrayOf("Kekayaan", "Teknologi",
+        "Keluarga", "Bisnis",
+        "Keluarga", "Hutang",
+        "Teknologi", "Pidana")
+
+    private val isi = arrayOf("pertanyaan 9",
+        "pertanyaan 11", "pertanyaan 17", "test forum",
+        "pertanyaan 12", "pertanyaan 18", "pertanyaan 20",
+        "pertanyaan 21")
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        var itemKode: TextView
+        var itemKategori: TextView
+        var itemIsi: TextView
+
+        init {
+            itemKode = itemView.findViewById(R.id.kodePertanyaan)
+            itemKategori = itemView.findViewById(R.id.kategori)
+            itemIsi = itemView.findViewById(R.id.isiPertanyaan)
+
+            itemView.setOnClickListener {
+                val position: Int = getAdapterPosition()
+                val context = itemView.context
+                val intent = Intent(context, DetailedActivity::class.java).apply {
+                    putExtra("NUMBER", position)
+                    putExtra("CODE", itemKode.text)
+                    putExtra("CATEGORY", itemKategori.text)
+                    putExtra("CONTENT", itemIsi.text)
+                }
+                context.startActivity(intent)
+            }
         }
     }
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int): InstituteViewHolder =  InstituteViewHolder(
-        LayoutInflater.from(parent.context).inflate(
-            R.layout.rv_item,
-            parent, false
-        )
-    )
-
-    override fun onBindViewHolder(holder: InstituteViewHolder, position: Int) {
-        val currentInstitute = coffee_places[position]
-        holder.bind(currentInstitute)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
+        val v = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.rv_item, viewGroup, false)
+        return ViewHolder(v)
     }
 
-    override fun getItemCount() = coffee_places.size
+    override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
+        viewHolder.itemKode.text = kode[i]
+        viewHolder.itemKategori.text = kategori[i]
+        viewHolder.itemIsi.text = isi[i]
+
+    }
+
+    override fun getItemCount(): Int {
+        return kode.size
+    }
 }

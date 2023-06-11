@@ -1,10 +1,7 @@
 package com.example.planetcafe_app
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.Window
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -14,7 +11,6 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
-    private val coffee_places: ArrayList<Coffee> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,24 +36,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    @SuppressLint("Recycle")
-    private fun InitializeData() {
-        val coffeePlaceList = resources.getStringArray(R.array.coffee_titles)
-        val coffeePlaceInfo = resources.getStringArray(R.array.coffee_info)
-        val coffeePlaceImageResources = resources.obtainTypedArray(R.array.coffee_images)
-
-        coffee_places.clear()
-
-        for (i in coffeePlaceList.indices) coffee_places.add (
-            Coffee(
-                coffeePlaceList[i],
-                coffeePlaceInfo[i],
-                coffeePlaceImageResources.getResourceId(i, 0)
-                )
-            )
-        coffeePlaceImageResources.recycle()
-    }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> supportFragmentManager.beginTransaction()
@@ -73,6 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
